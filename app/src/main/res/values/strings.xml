@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Apuestas</string>
+    <string name="titulo">APUESTAS ONLINE</string>
+    <string name="registro">REGISTRO</string>
+    <string name="apuestas">APUESTAS</string>
+    <string name="ajustes">AJUSTES</string>
+    <string name="sorteo">SORTEO</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="Acerca">Acerca de</string>
+    <string name="nombre">Nombre</string>
+    <string name="email">Email</string>
+    <string name="fecha">Fecha Nacimiento(dd/mm/aaaa)</string>
+    <string name="validar">VALIDAR</string>
+    <string name="futbol">Fútbol</string>
+    <string name="tenis">Tenis</string>
+    <string name="baloncesto">Baloncesto</string>
+    <string name="balonmano">Balonmano</string>
+    <string name="aceptar">ACEPTAR</string>
+    <string name="volver">VOLVER</string>
+    <string name="dinero">Dinero a apostar</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="numero1">Número 1</string>
+    <string name="numero2">Número 2</string>
+    <string name="enun">Estas apostando en:</string>
+    <string name="autor">Autor: Miguel Fernández Mariín</string>
+    <string name="anyo">Año 2017</string>
+    <string name="texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac fermentum elit. Nunc lobortis placerat libero vel semper. Curabitur rhoncus tempor posuere. Aenean tincidunt lectus eget sapien pretium egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque nisi lacus, imperdiet sit amet eros porttitor, mattis mattis turpis. Nullam tempor tortor a nibh volutpat imperdiet. In semper ultricies ligula, maximus maximus dolor mattis nec. Fusce risus lorem, condimentum in mauris vel, maximus scelerisque neque. Pellentesque hendrerit ipsum vitae nibh maximus iaculis quis et ligula. Mauris quis nulla porta, varius neque eget, malesuada lectus. Integer malesuada nisl a turpis facilisis cursus.
+
+Vivamus leo metus, euismod at erat vel, tristique feugiat nisi. Ut varius erat diam, a efficitur tortor interdum ac. In hac habitasse platea dictumst. Mauris a dui condimentum, accumsan nulla sit amet, cursus ex. Nullam at ex tincidunt neque blandit condimentum sit amet a diam. Sed efficitur dui et dignissim rhoncus. Integer rutrum condimentum sapien gravida aliquam. Curabitur quis lacus vitae ex blandit accumsan id eget eros.
+
+In ac tempus nibh, eget dignissim eros. Cras condimentum, odio ut maximus mollis, neque odio cursus erat, in iaculis ante libero a sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque gravida nibh et metus accumsan, quis scelerisque tortor malesuada. Nam faucibus consectetur nisl, a mattis elit iaculis sit amet. Nunc vitae euismod lectus, quis tempor est. Ut mattis euismod arcu eget volutpat. Nullam varius condimentum ligula eu consequat. Morbi at hendrerit augue. Nunc eleifend neque id interdum tincidunt. Proin sagittis, mi in porta egestas, tellus velit volutpat sem, malesuada eleifend ipsum tellus eu erat. Ut quis euismod urna.
+
+Vivamus fringilla rutrum viverra. Suspendisse potenti. Nam ac erat sapien. Aenean fringilla viverra mauris vitae pharetra. Cras ut dolor eget arcu varius euismod. Phasellus congue lorem urna, vitae blandit lorem finibus eu. Nulla luctus libero sed diam commodo sagittis. Ut porttitor eu elit eu egestas. Vivamus ut finibus mi, ac mollis erat. Sed eget risus eget est cursus dapibus. Phasellus et congue augue, ut tempus purus. In gravida urna at hendrerit finibus. Sed nec nisi tempus, ornare justo a, varius tortor. Etiam et enim a dolor molestie fringilla sed eget lectus. Aliquam finibus diam ut tellus rutrum, sed iaculis ex semper.
+
+Aliquam id ornare eros. Pellentesque euismod neque et eleifend congue. Integer feugiat velit velit, vel laoreet nibh tempus non. In feugiat a risus at interdum. Nam in laoreet odio. Donec a fermentum quam. Nam quis vulputate mauris. Ut condimentum enim lectus, ut cursus nisl feugiat nec. Duis arcu mi, malesuada vitae magna tincidunt, consectetur consectetur ipsum. Nam id nulla mauris.
+
+Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis justo eget eros auctor, nec euismod eros vestibulum. Vestibulum tristique, odio non ornare tristique, diam mi ullamcorper enim, in egestas eros orci sit amet tortor. Maecenas ornare velit ut arcu condimentum scelerisque ac nec arcu. Nam sodales efficitur lectus, id blandit tortor iaculis in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec vestibulum sapien at turpis fermentum ullamcorper. Integer fermentum tellus arcu, gravida dignissim nisi sollicitudin in. Cras interdum lorem vitae ex porttitor, quis porta enim aliquam.
+
+Nullam vehicula nisi eu ornare ullamcorper. Donec eu commodo ante. Sed vitae imperdiet sapien. Quisque hendrerit commodo velit sit amet efficitur. Sed convallis at elit sed lobortis. Duis luctus nunc ac ex aliquam dapibus. Duis eget purus iaculis, feugiat magna quis, vulputate velit.</string>
+
+
+
+
+
+</resources>

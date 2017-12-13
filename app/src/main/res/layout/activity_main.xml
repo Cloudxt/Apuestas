@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.diurnohlc.apuestas.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/titulo"
+        style="@style/titulos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonregistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registro"
+        />
+
+    <Button
+        android:id="@+id/botonapuestas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/apuestas"
+        />
+
+    <Button
+        android:id="@+id/botonajustes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ajustes" />
+
+    <Button
+        android:id="@+id/botonsorteo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sorteo" />
+
+</LinearLayout>
