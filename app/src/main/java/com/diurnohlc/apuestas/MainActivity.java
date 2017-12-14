@@ -8,20 +8,31 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
     final static int codigo_registro=0;
-    final static int codigo_ajustes=0;
+    final static int codigo_apuesta=1;
+    final static int codigo_ajustes=2;
+    Button btapuestas,btajustes;
+    String apuesta;
+    boolean abrirajustes=false,abrirapuestas=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button btregistro = (Button) findViewById(R.id.botonregistro);
-        Button btapuestas = (Button) findViewById(R.id.botonapuestas);
-        Button btajustes = (Button) findViewById(R.id.botonajustes);
-    //sorteo y poner un toast
+         btapuestas = (Button) findViewById(R.id.botonapuestas);
+        Button btsorteo = (Button) findViewById(R.id.botonsorteo);
+
+
+        btajustes = (Button) findViewById(R.id.botonajustes);
+
+
+        //sorteo y poner un toast
         btregistro.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 abrirRegistro();
@@ -33,7 +44,14 @@ public class MainActivity extends AppCompatActivity {
                 abrirAjustes();
             }
         });
+        btsorteo.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),R.string.adelante,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
         btapuestas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,20 +90,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abrirApuestas() {
-
-        Intent intent = new Intent(this, Apuestas.class);
-        startActivity(intent);
+        if(abrirapuestas) {
+            Intent intent = new Intent(this, Apuestas.class);
+            startActivityForResult(intent, codigo_apuesta);
+        }else{
+            Toast.makeText(getApplicationContext(),R.string.registrarte,
+                    Toast.LENGTH_SHORT).show();
+        }
 
     }
     public void abrirAjustes() {
-
-        Intent intent = new Intent(this, Ajustes.class);
-        startActivity(intent);
+        if(abrirajustes) {
+            Intent intent = new Intent(this, Ajustes.class);
+            intent.putExtra("deporte", apuesta);
+            startActivityForResult(intent, codigo_ajustes);
+        }else{
+            Toast.makeText(getApplicationContext(),R.string.seleccionar,
+                    Toast.LENGTH_SHORT).show();
+        }
 
     }
     @Override
     protected void onActivityResult( int requestCode, int resultCode,Intent data) {
-        if (requestCode == codigo_registro && resultCode == RESULT_OK) {
+        if (resultCode == RESULT_OK) {
+            if(requestCode == codigo_registro){
+                abrirapuestas=true;
+            }else if(requestCode == codigo_apuesta){
+
+               apuesta= data.getExtras().getString("apuesta");
+                abrirajustes=true;
+            }
 
 
         }

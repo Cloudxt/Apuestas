@@ -62,10 +62,11 @@ public class Registro extends AppCompatActivity {
         if(!comprobar()){
 
         }else{
-            Toast.makeText(getApplicationContext(),"Guardado correctamente",
+            Toast.makeText(getApplicationContext(),R.string.guardado,
                     Toast.LENGTH_SHORT).show();
             intent.putExtra("registro",true);
             setResult(RESULT_OK,intent);
+            finish();
         }
 
 
@@ -74,11 +75,11 @@ public class Registro extends AppCompatActivity {
 
 
         if (nombre.getText().equals("")){
-            Toast.makeText(getApplicationContext(),"No ha introducido el nombre",
+            Toast.makeText(getApplicationContext(),R.string.nonombre,
                     Toast.LENGTH_SHORT).show();
             return false;}
         else if (email.getText().equals("")) {
-            Toast.makeText(getApplicationContext(),"No ha introducido el email correctamente",
+            Toast.makeText(getApplicationContext(),R.string.noemail,
                     Toast.LENGTH_SHORT).show();
             return false;
         }else if (comprobarEdad()) {
@@ -110,11 +111,11 @@ public class Registro extends AppCompatActivity {
         Date fechaseleccionada = null;
         try {
             fechaseleccionada = fechaformato.parse(tfecha.getText().toString());
-            edad = fechaactual.getTimeInMillis() - fechaseleccionada.getTime() / 31556900000l;
+            edad = (fechaactual.getTimeInMillis() - fechaseleccionada.getTime())/31536000000l;
         } catch (ParseException pe) {
 
         }
-        if (edad>=18)
+        if (edad<=18)
             return true;
         else
             return false;

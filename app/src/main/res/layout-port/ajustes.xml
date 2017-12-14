@@ -48,6 +48,8 @@
                     <Spinner
                         android:id="@+id/spinnerapuesta"
                         android:layout_width="67dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:layout_height="36dp"
                         android:layout_marginBottom="344dp"
                         android:layout_marginEnd="8dp"
@@ -77,7 +79,7 @@
                         android:id="@+id/botonvolver"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="68dp"
+                        android:layout_marginEnd="52dp"
                         android:text="@string/volver"
                         app:layout_constraintBaseline_toBaselineOf="@+id/botonguardar"
                         app:layout_constraintEnd_toEndOf="parent" />
@@ -135,14 +137,16 @@
                             android:layout_width="94dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="65dp"
-                            android:hint="@string/numero1" />
+                            android:hint="@string/numero1"
+                            android:inputType="number" />
 
                         <EditText
                             android:id="@+id/textnumero2"
                             android:layout_width="94dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="65dp"
-                            android:hint="@string/numero2" />
+                            android:hint="@string/numero2"
+                            android:inputType="number" />
 
 
                     </LinearLayout>
