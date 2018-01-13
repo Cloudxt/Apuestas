@@ -13,6 +13,7 @@
         android:layout_height="25dp"
         style="@style/titulos"
         android:text="@string/titulo"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -29,6 +30,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/registro"
+        style="@style/botones"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.197"
@@ -45,6 +47,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/botonregistro"
         app:layout_constraintStart_toEndOf="@+id/botonregistro"
         tools:text="@string/apuestas"
+        style="@style/botones"
         android:clickable="false"/>
 
     <Button
@@ -55,6 +58,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        style="@style/botones"
         android:text="@string/ajustes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,6 +74,7 @@
         android:layout_height="60dp"
         android:layout_marginLeft="124dp"
         android:text="@string/sorteo"
+        style="@style/botones"
         app:layout_constraintBaseline_toBaselineOf="@+id/botonajustes"
         app:layout_constraintStart_toEndOf="@+id/botonajustes" />
 

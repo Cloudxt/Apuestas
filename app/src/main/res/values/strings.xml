@@ -7,11 +7,11 @@
     <string name="sorteo">RAFFLE</string>
     <string name="ayuda">Help</string>
     <string name="Acerca">About</string>
-    <string name="nombre">Name</string>
-    <string name="email">Email</string>
+    <string name="nombre">Name </string>
+    <string name="email">Email </string>
     <string name="fecha">BirthDate(dd/mm/yyyy)</string>
     <string name="validar">CHECK IT</string>
-    <string name="futbol">Footbol</string>
+    <string name="futbol">Football</string>
     <string name="tenis">Tennis</string>
     <string name="baloncesto">Basket</string>
     <string name="balonmano">Handball</string>
@@ -36,7 +36,7 @@
     <string name="correcto">Nice</string>
     <string name="registrarte">You have to login</string>
     <string name="seleccionar">You have to login and select sport</string>
-
+    <string name="fecha2">Date: </string>
     <string name="adelante">This optio will be able in the next patch</string>
     <string name="texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac fermentum elit. Nunc lobortis placerat libero vel semper. Curabitur rhoncus tempor posuere. Aenean tincidunt lectus eget sapien pretium egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque nisi lacus, imperdiet sit amet eros porttitor, mattis mattis turpis. Nullam tempor tortor a nibh volutpat imperdiet. In semper ultricies ligula, maximus maximus dolor mattis nec. Fusce risus lorem, condimentum in mauris vel, maximus scelerisque neque. Pellentesque hendrerit ipsum vitae nibh maximus iaculis quis et ligula. Mauris quis nulla porta, varius neque eget, malesuada lectus. Integer malesuada nisl a turpis facilisis cursus.
 

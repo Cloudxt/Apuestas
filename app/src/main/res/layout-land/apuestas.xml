@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
-        android:layout_marginEnd="116dp"
+        android:layout_marginEnd="132dp"
         android:text="@string/tenis"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView2" />
@@ -51,8 +51,8 @@
     <CheckBox
         android:id="@+id/checkBoxbaloncesto"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/baloncesto"
         app:layout_constraintBaseline_toBaselineOf="@+id/checkBoxfutbol"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -61,7 +61,7 @@
         android:id="@+id/checkBoxbalonmano"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="4dp"
         android:text="@string/balonmano"
         app:layout_constraintBaseline_toBaselineOf="@+id/checkBoxtenis"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -71,7 +71,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="72dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/checkBoxbalonmano"
@@ -99,6 +99,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/checkBoxtenis"
+        app:layout_constraintHorizontal_bias="0.611"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.492"

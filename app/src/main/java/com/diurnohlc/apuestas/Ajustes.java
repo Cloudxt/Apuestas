@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -26,6 +26,9 @@ public class Ajustes extends AppCompatActivity {
     String deporte;
     int numero1, numero2;
     TextView num1, num2;
+    String spinnervalor;
+    String numerofinal1 ;
+    String numerofinal2 ;
     public Intent intent = new Intent();
 
     @Override
@@ -38,6 +41,7 @@ public class Ajustes extends AppCompatActivity {
         num2 = (TextView) findViewById(R.id.textnumero2);
 
         deporte = getIntent().getExtras().getString("deporte");
+
         switch (deporte) {
             case "futbol":
                 tipodedeporte.setText("Futbol");
@@ -137,12 +141,39 @@ public class Ajustes extends AppCompatActivity {
 
         }
         if (comprobar) {
+
             Toast.makeText(getApplicationContext(), R.string.correcto,
                     Toast.LENGTH_SHORT).show();
+            Bundle bundle= new Bundle();
+            spinnervalor= spinner.getSelectedItem().toString();
+             numerofinal1 =String.valueOf(numero1);
+             numerofinal2 =String.valueOf(numero2);
+            bundle.putString("APUESTA",spinnervalor);
+            bundle.putString("NUMERO1",numerofinal1);
+            bundle.putString("NUMERO2",numerofinal2);
+            intent.putExtras(bundle);
+            setResult(RESULT_OK,intent);
             finish();
         } else {
 
         }
     }
 
+    protected void onSaveInstanceState(Bundle estado) {
+        super.onSaveInstanceState(estado);
+        estado.putString ("APUESTA", spinnervalor);
+        estado.putString ("NUMERO1", numerofinal1);
+        estado.putString ("NUMERO2", numerofinal2);
+        estado.putInt("ESTADOTAB",tab.getCurrentTab());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle estado) {
+        super.onRestoreInstanceState (estado);
+        spinnervalor = estado.getString("APUESTA");
+        numerofinal1= estado.getString("NUMERO1");
+        numerofinal2 = estado.getString("NUMERO2");
+        tab.setCurrentTab(estado.getInt("ESTADOTAB"));
+
+    }
 }

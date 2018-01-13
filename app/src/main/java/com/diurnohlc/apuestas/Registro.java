@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -15,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 /**
  * Created by cloud on 13/12/2017.
@@ -58,13 +60,20 @@ public class Registro extends AppCompatActivity {
     }
 
     public void validar(){
-        Intent intent=new Intent();
+        Intent intent = new Intent(this, MainActivity.class);
         if(!comprobar()){
 
         }else{
             Toast.makeText(getApplicationContext(),R.string.guardado,
                     Toast.LENGTH_SHORT).show();
             intent.putExtra("registro",true);
+
+            Bundle bundle = new Bundle();
+            bundle.putString("NOMBRE",nombre.getText().toString());
+            bundle.putString("CORREO",email.getText().toString());
+            bundle.putString("FECHA",tfecha.getText().toString());
+
+            intent.putExtras(bundle);
             setResult(RESULT_OK,intent);
             finish();
         }
@@ -78,12 +87,12 @@ public class Registro extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),R.string.nonombre,
                     Toast.LENGTH_SHORT).show();
             return false;}
-        else if (email.getText().equals("")) {
+        else if (!validarEmail()) {
             Toast.makeText(getApplicationContext(),R.string.noemail,
                     Toast.LENGTH_SHORT).show();
             return false;
         }else if (comprobarEdad()) {
-            Toast.makeText(getApplicationContext(),"No eres mayor de edad",
+            Toast.makeText(getApplicationContext(),R.string.noedad,
                     Toast.LENGTH_SHORT).show();
             return false;
         }else
@@ -101,6 +110,12 @@ public class Registro extends AppCompatActivity {
             }
         });
         dialogo.show(getFragmentManager(), "datePicker");
+    }
+
+    private boolean validarEmail(){
+        Pattern validaremail = Patterns.EMAIL_ADDRESS;
+        String comprobacion = email.getText().toString();
+        return validaremail.matcher(comprobacion).matches();
     }
 
     public boolean comprobarEdad() {

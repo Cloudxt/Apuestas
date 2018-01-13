@@ -22,6 +22,7 @@
         android:id="@+id/botonregistro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/botones"
         android:text="@string/registro" />
 
     <Button
@@ -29,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/apuestas"
+        style="@style/botones"
         />
 
     <Button
@@ -36,13 +38,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/ajustes"
+        style="@style/botones"
       />
 
     <Button
         android:id="@+id/botonsorteo"
+        style="@style/botones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sorteo"
-        />
+        android:text="@string/sorteo" />
 
 </LinearLayout>

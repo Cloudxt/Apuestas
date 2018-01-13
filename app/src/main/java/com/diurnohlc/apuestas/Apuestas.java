@@ -51,7 +51,7 @@ public class Apuestas extends AppCompatActivity {
         Intent intent=new Intent();
         if(cbfutbol.isChecked()){
             contador++;
-            deporte="Futbol";
+            deporte="futbol";
         } if(cbbaloncesto.isChecked()){
            contador++;
             deporte="baloncesto";
@@ -66,6 +66,11 @@ public class Apuestas extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),R.string.suerte,
                     Toast.LENGTH_SHORT).show();
             intent.putExtra("apuesta",deporte);
+            Bundle bundle = new Bundle();
+            bundle.putString("DEPORTE",deporte);
+
+
+            intent.putExtras(bundle);
             setResult(RESULT_OK,intent);
             finish();
         }else if(contador>1){
