@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void obtenerDatosApuesta(Intent intent) {
         Bundle bundle = intent.getExtras();
-        deporte = bundle.getString("DEPORTE");
+        deporte = bundle.getString("deporte");
         String toast = getResources().getString(R.string.nombre) +" "+ bundle.getString("DEPORTE");
         Toast.makeText(getApplicationContext(), toast,
                 Toast.LENGTH_LONG).show();

@@ -23,7 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/botones"
-        android:text="@string/registro" />
+        android:text="@string/registro"
+        />
 
     <Button
         android:id="@+id/botonapuestas"

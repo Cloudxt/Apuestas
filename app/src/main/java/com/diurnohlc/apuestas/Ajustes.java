@@ -39,9 +39,9 @@ public class Ajustes extends AppCompatActivity {
         TextView partidos = (TextView) findViewById(R.id.partidos);
         num1 = (TextView) findViewById(R.id.textnumero1);
         num2 = (TextView) findViewById(R.id.textnumero2);
-
         deporte = getIntent().getExtras().getString("deporte");
 
+        Log.i("ASD",deporte);
         switch (deporte) {
             case "futbol":
                 tipodedeporte.setText("Futbol");
@@ -173,6 +173,7 @@ public class Ajustes extends AppCompatActivity {
         spinnervalor = estado.getString("APUESTA");
         numerofinal1= estado.getString("NUMERO1");
         numerofinal2 = estado.getString("NUMERO2");
+
         tab.setCurrentTab(estado.getInt("ESTADOTAB"));
 
     }

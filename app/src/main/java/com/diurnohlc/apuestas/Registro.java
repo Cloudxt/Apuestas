@@ -22,46 +22,36 @@ import java.util.regex.Pattern;
  * Created by cloud on 13/12/2017.
  */
 public class Registro extends AppCompatActivity {
-    Button btvalidar, btvolver;
-    EditText tfecha, nombre, email;
+    private Control control ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registro);
-        btvalidar = (Button) findViewById(R.id.botonvalidar);
-        btvolver = (Button) findViewById(R.id.botonvolver3);
-        tfecha = (EditText) findViewById(R.id.textfecha);
-        nombre = (EditText) findViewById(R.id.textnombre);
-        email = (EditText) findViewById(R.id.textemail);
-
-        btvalidar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validar();
-            }
-        });
-        btvolver.setOnClickListener(new View.OnClickListener() {
-
-
-
-            @Override
-            public void onClick(View v) {
-
-                finish();
-            }
-        });
-        tfecha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+       control = (Control) findViewById(R.id.control);
+       control.setListener(new RegistroListener() {
+           @Override
+           public void OnLogin(String usuario, String email, String fecha) {
+               validar(usuario,email,fecha);
+           }
+       });
+       control.setListenerDate(new DatepickerInterface() {
+           @Override
+           public void setListener() {
                 abrirDatePicker();
-            }
-        });
+           }
+       });
+       control.setListenerVolver(new VolverInterface() {
+           @Override
+           public void setListener() {
+               finish();
+           }
+       });
     }
 
-    public void validar(){
+    public void validar(String nombre,String email,String fecha){
         Intent intent = new Intent(this, MainActivity.class);
-        if(!comprobar()){
+        if(!comprobar(nombre,email,fecha)){
 
         }else{
             Toast.makeText(getApplicationContext(),R.string.guardado,
@@ -69,9 +59,9 @@ public class Registro extends AppCompatActivity {
             intent.putExtra("registro",true);
 
             Bundle bundle = new Bundle();
-            bundle.putString("NOMBRE",nombre.getText().toString());
-            bundle.putString("CORREO",email.getText().toString());
-            bundle.putString("FECHA",tfecha.getText().toString());
+            bundle.putString("NOMBRE",nombre);
+            bundle.putString("CORREO",email);
+            bundle.putString("FECHA",fecha);
 
             intent.putExtras(bundle);
             setResult(RESULT_OK,intent);
@@ -80,18 +70,18 @@ public class Registro extends AppCompatActivity {
 
 
     }
-    public boolean comprobar() {
+    public boolean comprobar(String nombre,String email, String fecha) {
 
 
-        if (nombre.getText().equals("")){
+        if (nombre.equals("")){
             Toast.makeText(getApplicationContext(),R.string.nonombre,
                     Toast.LENGTH_SHORT).show();
             return false;}
-        else if (!validarEmail()) {
+        else if (!validarEmail(email)) {
             Toast.makeText(getApplicationContext(),R.string.noemail,
                     Toast.LENGTH_SHORT).show();
             return false;
-        }else if (comprobarEdad()) {
+        }else if (comprobarEdad(fecha)) {
             Toast.makeText(getApplicationContext(),R.string.noedad,
                     Toast.LENGTH_SHORT).show();
             return false;
@@ -106,26 +96,26 @@ public class Registro extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int anyo, int mes, int dia) {
 
                 final String selectedDate = dia + " / " + (mes + 1) + " / " + anyo;
-                tfecha.setText(selectedDate);
+                control.setTfecha(selectedDate);
             }
         });
         dialogo.show(getFragmentManager(), "datePicker");
     }
 
-    private boolean validarEmail(){
+    private boolean validarEmail(String email){
         Pattern validaremail = Patterns.EMAIL_ADDRESS;
-        String comprobacion = email.getText().toString();
+        String comprobacion = email;
         return validaremail.matcher(comprobacion).matches();
     }
 
-    public boolean comprobarEdad() {
+    public boolean comprobarEdad(String fecha) {
         Calendar fechaactual = Calendar.getInstance();
         SimpleDateFormat fechaformato = new SimpleDateFormat("dd / MM / yyyy");
         long edad=0;
 
         Date fechaseleccionada = null;
         try {
-            fechaseleccionada = fechaformato.parse(tfecha.getText().toString());
+            fechaseleccionada = fechaformato.parse(fecha);
             edad = (fechaactual.getTimeInMillis() - fechaseleccionada.getTime())/31536000000l;
         } catch (ParseException pe) {
 
@@ -136,4 +126,19 @@ public class Registro extends AppCompatActivity {
             return false;
     }
 
+    protected void onSaveInstanceState(Bundle estado) {
+        super.onSaveInstanceState(estado);
+        estado.putString ("NOMBRE", control.getNombre().getText().toString());
+        estado.putString ("EMAIL", control.getEmail().getText().toString());
+        estado.putString ("FECHA", control.getTfecha().getText().toString());
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle estado) {
+        super.onRestoreInstanceState (estado);
+        control.setNombre(estado.getString("NOMBRE"));
+        control.setEmail(estado.getString("EMAIL"));
+        control.setTfecha(estado.getString("FECHA"));
+    }
 }
