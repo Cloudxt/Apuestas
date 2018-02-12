@@ -17,9 +17,7 @@ public class MainActivity extends AppCompatActivity {
     final static int codigo_apuesta = 1;
     final static int codigo_ajustes = 2;
     Button btapuestas, btajustes;
-    String apuesta;
     String deporte;
-    String nombre;
     boolean abrirajustes = false, abrirapuestas = false;
 
     @Override
@@ -29,12 +27,10 @@ public class MainActivity extends AppCompatActivity {
         Button btregistro = (Button) findViewById(R.id.botonregistro);
         btapuestas = (Button) findViewById(R.id.botonapuestas);
         Button btsorteo = (Button) findViewById(R.id.botonsorteo);
-
-
         btajustes = (Button) findViewById(R.id.botonajustes);
 
 
-        //sorteo y poner un toast
+        //Funcionalidad de los botones
         btregistro.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -63,14 +59,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
 
+
+    }
+    //Para crear el menu e inflarlo
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menuprincipal, menu);
         return true;
     }
-
+    //Como un onClick, cuando le damos a la opciones abren su intent correspondiente
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -80,7 +78,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, Ayuda.class);
             startActivity(intent);
             return true;
-        } else {
+        }else if (id == R.id.preferencias){
+            Intent intent = new Intent(this, Preferencias.class);
+            startActivity(intent);
+            return true;
+        }
+        else {
             Intent intent = new Intent(this, Acercade.class);
             startActivity(intent);
             return true;
@@ -88,16 +91,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    // metodo que abre el intent de registro
     public void abrirRegistro() {
 
         Intent intent = new Intent(this, Registro.class);
-
-
         startActivityForResult(intent, codigo_registro);
 
     }
-
+    //Método que abre el intent de apuestas, si antes has completado el intent de Registro
     public void abrirApuestas() {
         if (abrirapuestas) {
             Intent intent = new Intent(this, Apuestas.class);
@@ -108,11 +109,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+    //Método que abre el intent de ajustes, si antes has completado el intent de apuestas
     public void abrirAjustes() {
         if (abrirajustes) {
             Intent intent = new Intent(this, Ajustes.class);
-            intent.putExtra("deporte", apuesta);
+            intent.putExtra("ENVIARDEPORTE", deporte);
             startActivityForResult(intent, codigo_ajustes);
         } else {
             Toast.makeText(getApplicationContext(), R.string.seleccionar,
@@ -120,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+    //Donde se devuelven los resultados de los intent, donde dejaremos que se abran otros intent
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
@@ -129,17 +130,17 @@ public class MainActivity extends AppCompatActivity {
                 abrirapuestas = true;
             } else if (requestCode == codigo_apuesta) {
                 obtenerDatosApuesta(data);
-                apuesta = data.getExtras().getString("apuesta");
+                deporte = data.getExtras().getString("OBTENERDEPORTE");
                 abrirajustes = true;
             }else if (requestCode==codigo_ajustes){
-                Log.i("asdf","asdf");
+                Log.i("asdf","Has salido de ajustes");
                 obtenerDatosAjustes(data);
             }
 
 
         }
     }
-
+    //Recoje los valores del intent registro y los muestra en un toast
     public void obtenerDatosRegistro(Intent intent) {
         Bundle bundle = intent.getExtras();
         String toast = getResources().getString(R.string.nombre) +" "+ bundle.getString("NOMBRE")+" ";
@@ -148,14 +149,15 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), toast,
                 Toast.LENGTH_LONG).show();
     }
-
+    //Recoje los valores del intent apuesta y los muestra en un toast
     public void obtenerDatosApuesta(Intent intent) {
         Bundle bundle = intent.getExtras();
-        deporte = bundle.getString("deporte");
-        String toast = getResources().getString(R.string.nombre) +" "+ bundle.getString("DEPORTE");
+        deporte = intent.getExtras().getString("OBTENERDEPORTE");
+        String toast = getResources().getString(R.string.nombre) +" "+deporte;
         Toast.makeText(getApplicationContext(), toast,
                 Toast.LENGTH_LONG).show();
     }
+    //Recoje los valores del intent ajustes y los muestra en un toast
     public void obtenerDatosAjustes(Intent intent) {
         Bundle bundle = intent.getExtras();
         String toast = getResources().getString(R.string.apuestas) +" "+ bundle.getString("APUESTA")+" ";
@@ -164,21 +166,22 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), toast,
                 Toast.LENGTH_LONG).show();
     }
+    //Metodo donde guardaremos las variables booleanas para abrir los intents por si es destruida
     @Override
     protected void onSaveInstanceState(Bundle estado) {
         super.onSaveInstanceState(estado);
         estado.putBoolean ("ABRIRAPUESTAS", abrirapuestas);
         estado.putBoolean ("ABRIRAJUSTES", abrirajustes);
-        estado.putString ("DEPORTE2", deporte);
+        estado.putString ("GUARDARDEPORTE", deporte);
       //  estado.putString ("NOMBRE", nombre);
     }
-
+    //Metodo que restaura las variables guardadas en el metodo anterior
     @Override
     protected void onRestoreInstanceState(Bundle estado) {
         super.onRestoreInstanceState (estado);
         abrirapuestas = estado.getBoolean("ABRIRAPUESTAS");
         abrirajustes= estado.getBoolean("ABRIRAJUSTES");
-        deporte = estado.getString("DEPORTE2");
+        deporte = estado.getString("GUARDARDEPORTE");
 
     }
 }

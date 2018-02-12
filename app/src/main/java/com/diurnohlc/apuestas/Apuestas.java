@@ -65,12 +65,7 @@ public class Apuestas extends AppCompatActivity {
         }if(contador==1){
             Toast.makeText(getApplicationContext(),R.string.suerte,
                     Toast.LENGTH_SHORT).show();
-            intent.putExtra("apuesta",deporte);
-            Bundle bundle = new Bundle();
-            bundle.putString("DEPORTE",deporte);
-
-
-            intent.putExtras(bundle);
+            intent.putExtra("OBTENERDEPORTE",deporte);
             setResult(RESULT_OK,intent);
             finish();
         }else if(contador>1){

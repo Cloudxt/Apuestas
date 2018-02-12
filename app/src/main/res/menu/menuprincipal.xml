@@ -11,4 +11,7 @@
         android:icon="@drawable/pregunta"
         app:showAsAction="always"
         />
+    <item
+        android:id="@+id/preferencias"
+        android:title="@string/preferencias" />
 </menu>

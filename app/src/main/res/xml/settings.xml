@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="Usuario"
+        android:title="@string/prefUser">
+    <EditTextPreference
+        android:key="usuario"
+        android:title="@string/prefUsuario"
+        android:summary="@string/prefUsuarioResumen"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
+    <EditTextPreference
+        android:key="email"
+        android:title="@string/prefEmail"
+        android:summary="@string/prefEmailResumen"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
+    <EditTextPreference
+        android:key="fecha"
+        android:title="@string/prefFecha"
+        android:summary="@string/prefFechaResumen"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="apuestas"
+        android:title="@string/prefApuestas">
+        <ListPreference
+            android:key="deporte"
+            android:title="@string/prefApuesta"
+            android:summary="@string/prefApuestaResumen"
+            android:defaultValue="4"
+            android:entries="@array/pref_numApuesta_entradas"
+            android:entryValues="@array/pref_numApuesta_valores"/>
+        <ListPreference
+            android:key="Apuesta"
+            android:title="@string/prefDinero"
+            android:summary="@string/prefDineroResumen"
+            android:defaultValue="3"
+            android:entries="@array/pref_numDinero_entradas"
+            android:entryValues="@array/pref_numDinero_valores"/>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -42,17 +42,17 @@
         android:text="@string/tenis"
         app:layout_constraintBottom_toTopOf="@+id/checkBoxbaloncesto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.251"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxfutbol"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/checkBoxbaloncesto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="144dp"
         android:text="@string/baloncesto"
         app:layout_constraintBottom_toTopOf="@+id/checkBoxbalonmano"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -61,13 +61,13 @@
         android:id="@+id/checkBoxbalonmano"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="88dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/balonmano"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintHorizontal_bias="0.221"
         app:layout_constraintStart_toEndOf="@+id/imageView2" />
 
     <ImageView
@@ -96,7 +96,7 @@
         android:id="@+id/imageView4"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginStart="48dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +112,7 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/futbol" />
 
     <Button

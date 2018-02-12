@@ -51,9 +51,20 @@ Aliquam id ornare eros. Pellentesque euismod neque et eleifend congue. Integer f
 Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis justo eget eros auctor, nec euismod eros vestibulum. Vestibulum tristique, odio non ornare tristique, diam mi ullamcorper enim, in egestas eros orci sit amet tortor. Maecenas ornare velit ut arcu condimentum scelerisque ac nec arcu. Nam sodales efficitur lectus, id blandit tortor iaculis in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec vestibulum sapien at turpis fermentum ullamcorper. Integer fermentum tellus arcu, gravida dignissim nisi sollicitudin in. Cras interdum lorem vitae ex porttitor, quis porta enim aliquam.
 
 Nullam vehicula nisi eu ornare ullamcorper. Donec eu commodo ante. Sed vitae imperdiet sapien. Quisque hendrerit commodo velit sit amet efficitur. Sed convallis at elit sed lobortis. Duis luctus nunc ac ex aliquam dapibus. Duis eget purus iaculis, feugiat magna quis, vulputate velit.</string>
-
-
-
+    <string name="prefUser">Configuracion Usuario</string>
+    <string name="prefUsuario">Usuario</string>
+    <string name="prefUsuarioResumen">Guardar el usuario</string>
+    <string name="prefEmail">Correo</string>
+    <string name="prefEmailResumen">Guardar el correo</string>
+    <string name="prefFecha">Año de nacimiento</string>
+    <string name="prefFechaResumen">Guardar tu año de nacimiento</string>
+    <string name="prefGenerales">Generales</string>
+    <string name="prefApuestaResumen">Valor predefinido en la apuesta</string>
+    <string name="prefApuesta">Apuesta</string>
+    <string name="prefApuestas">Apuestas</string>
+    <string name="prefDinero">Money to bet</string>
+    <string name="prefDineroResumen">To save the value of beting money</string>
+    <string name="preferencias">Preferences</string>
 
 
 </resources>

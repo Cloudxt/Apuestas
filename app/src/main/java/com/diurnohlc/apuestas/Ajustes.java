@@ -39,7 +39,7 @@ public class Ajustes extends AppCompatActivity {
         TextView partidos = (TextView) findViewById(R.id.partidos);
         num1 = (TextView) findViewById(R.id.textnumero1);
         num2 = (TextView) findViewById(R.id.textnumero2);
-        deporte = getIntent().getExtras().getString("deporte");
+        deporte = getIntent().getExtras().getString("ENVIARDEPORTE");
 
         Log.i("ASD",deporte);
         switch (deporte) {
@@ -161,7 +161,7 @@ public class Ajustes extends AppCompatActivity {
 
     protected void onSaveInstanceState(Bundle estado) {
         super.onSaveInstanceState(estado);
-        estado.putString ("APUESTA", spinnervalor);
+        estado.putString ("SPINNERAPUESTA", spinnervalor);
         estado.putString ("NUMERO1", numerofinal1);
         estado.putString ("NUMERO2", numerofinal2);
         estado.putInt("ESTADOTAB",tab.getCurrentTab());
@@ -170,10 +170,9 @@ public class Ajustes extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle estado) {
         super.onRestoreInstanceState (estado);
-        spinnervalor = estado.getString("APUESTA");
+        spinnervalor = estado.getString("SPINNERAPUESTA");
         numerofinal1= estado.getString("NUMERO1");
         numerofinal2 = estado.getString("NUMERO2");
-
         tab.setCurrentTab(estado.getInt("ESTADOTAB"));
 
     }
