@@ -1,8 +1,10 @@
 package com.diurnohlc.apuestas;
 
         import android.content.Intent;
+        import android.content.SharedPreferences;
         import android.content.res.Resources;
         import android.os.Bundle;
+        import android.preference.PreferenceManager;
         import android.support.v7.app.AppCompatActivity;
         import android.view.View;
         import android.widget.ArrayAdapter;
@@ -44,6 +46,11 @@ public class Apuestas extends AppCompatActivity {
                 finish();
             }
         });
+        PreferenceManager.setDefaultValues(this,R.xml.settings,true);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String preferenciaDeporte = sharedPref.getString("deporte","tenis" );
+        preferencias(preferenciaDeporte);
+
     }
     public void aceptar(){
         int contador=0;
@@ -74,6 +81,19 @@ public class Apuestas extends AppCompatActivity {
         }else{
             Toast.makeText(getApplicationContext(),R.string.una,
                     Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void preferencias(String deporte){
+        if(deporte.equals("tenis")){
+            cbtenis.setChecked(true);
+        }
+        if(deporte.equals("futbol")){
+            cbfutbol.setChecked(true);
+        }
+        if(deporte.equals("baloncesto")){
+            cbbaloncesto.setChecked(true);
+        }if(deporte.equals("balonmano")){
+            cbbalonmano.setChecked(true);
         }
     }
 }

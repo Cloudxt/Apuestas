@@ -4,7 +4,7 @@
     <string name="registro">REGISTRO</string>
     <string name="apuestas">APUESTAS</string>
     <string name="ajustes">AJUSTES</string>
-    <string name="sorteo">SORTEO</string>
+    <string name="sorteo">RESULTADOS</string>
     <string name="ayuda">Ayuda</string>
     <string name="Acerca">Acerca de</string>
     <string name="nombre">Nombre</string>
@@ -65,6 +65,22 @@ Nullam vehicula nisi eu ornare ullamcorper. Donec eu commodo ante. Sed vitae imp
     <string name="prefDinero">Money to bet</string>
     <string name="prefDineroResumen">To save the value of beting money</string>
     <string name="preferencias">Preferences</string>
+    <string name="deporte">Sport</string>
+    <string name="anadirpartido">Add a match</string>
+    <string name="modificarpartido">Modify a match</string>
+    <string name="partido">Match</string>
+    <string name="equipo1">team1</string>
+    <string name="equipo2">Team 2</string>
+    <string name="resultado1">Result 1</string>
+    <string name="resultado2">Result 2</string>
+    <string name="noIdPartido">The filed id is empy</string>
+    <string name="noTipoDeporte">The field sport is empy</string>
+    <string name="noEquipo">The fileds team cant be empty</string>
+    <string name="noResultado">The fields restults can\'t be empty</string>
+    <string name="noInsertar">This match is already in the database</string>
+    <string name="partidoanadido">The match has benn added</string>
+    <string name="noModificar">This march doesn\'t exist to modify</string>
+    <string name="partidoModificado">Match modified</string>
 
 
 </resources>

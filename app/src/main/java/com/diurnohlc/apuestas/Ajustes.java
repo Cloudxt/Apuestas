@@ -1,8 +1,10 @@
 package com.diurnohlc.apuestas;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +42,7 @@ public class Ajustes extends AppCompatActivity {
         num1 = (TextView) findViewById(R.id.textnumero1);
         num2 = (TextView) findViewById(R.id.textnumero2);
         deporte = getIntent().getExtras().getString("ENVIARDEPORTE");
+
 
         Log.i("ASD",deporte);
         switch (deporte) {
@@ -117,8 +120,29 @@ public class Ajustes extends AppCompatActivity {
 
         spinner = (Spinner) findViewById(R.id.spinnerapuesta);
         spinner.setAdapter(adaptador);
+        PreferenceManager.setDefaultValues(this,R.xml.settings,true);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String preferenciaDeporte = sharedPref.getString("deporte","tenis" );
+        preferencias(preferenciaDeporte);
 
 
+
+
+    }
+
+    private void preferencias(String preferenciaDeporte) {
+        if(preferenciaDeporte.equals("1")){
+            spinner.setSelection(0);
+        }
+        if(preferenciaDeporte.equals("2")){
+            spinner.setSelection(1);
+        }
+        if(preferenciaDeporte.equals("5")){
+            spinner.setSelection(2);
+        }
+        if(preferenciaDeporte.equals("10")){
+            spinner.setSelection(3);
+        }
     }
 
     public void guardar() {

@@ -30,5 +30,4 @@ public class DialogoDatePicker extends DialogFragment {
         return new DatePickerDialog(getActivity(),listener, calendario.get(Calendar.YEAR),
                 calendario.get(Calendar.MONTH),calendario.get(Calendar.DAY_OF_MONTH));
     }
-
 }

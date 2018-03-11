@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -48,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), R.string.adelante,
-                        Toast.LENGTH_SHORT).show();
+                abrirResultado();
             }
         });
         btapuestas.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    private void abrirResultado() {
+        Intent intent = new Intent(this, resultados.class);
+      //  intent.putExtra("ENVIARDEPORTE", deporte);
+        startActivity(intent);
+    }
+
     //Para crear el menu e inflarlo
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -184,4 +189,5 @@ public class MainActivity extends AppCompatActivity {
         deporte = estado.getString("GUARDARDEPORTE");
 
     }
+
 }

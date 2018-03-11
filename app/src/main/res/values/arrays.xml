@@ -8,18 +8,20 @@
     </string-array>
 
     <string-array name="pref_numApuesta_valores" >
-    <item>@string/futbol</item>
-    <item>@string/baloncesto</item>
-    <item>@string/balonmano</item>
-    <item>@string/tenis</item>
+    <item>futbol</item>
+    <item>baloncesto</item>
+    <item>balonmano</item>
+    <item>tenis</item>
     </string-array>
     <string-array name="pref_numDinero_entradas">
     <item>1</item>
+    <item>2</item>
     <item>5</item>
     <item>10</item>
     </string-array>
     <string-array name="pref_numDinero_valores" >
         <item>1</item>
+        <item>2</item>
         <item>5</item>
         <item>10</item>
     </string-array>

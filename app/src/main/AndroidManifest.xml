@@ -22,6 +22,9 @@
         <activity android:name=".Ayuda" />
         <activity android:name=".Apuestas" />
         <activity android:name=".Preferencias" />
+        <activity android:name=".resultados" />
+        <activity android:name=".AnadirPartidos" />
+        <activity android:name=".ModificarPartidos" />
 
 
     </application>
