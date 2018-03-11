@@ -24,6 +24,9 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         if(key.equals("deporte")){
             Preference preference = findPreference(key);
             preference.setSummary(sharedPreferences.getString(key,""));
+        }if(key.equals("apuesta")){
+            Preference preference = findPreference(key);
+            preference.setSummary(sharedPreferences.getString(key,""));
         }
 
     }

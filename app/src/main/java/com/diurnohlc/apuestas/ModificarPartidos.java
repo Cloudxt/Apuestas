@@ -48,6 +48,9 @@ public class ModificarPartidos extends AppCompatActivity {
 
     }
 
+    /**
+     * Modifica un partido que ya esta en la base
+     */
     private void modificarPartido() {
         if(comprobarCampos()){
             if(!comprobarIdPartido()){
@@ -64,6 +67,9 @@ public class ModificarPartidos extends AppCompatActivity {
 
     }
 
+    /**
+     * Si todo esta correcto modifica un valor en la base de datos
+     */
     private void modificarPartidoEnLaBD() {
         bd=bdHelp.getWritableDatabase();
         ContentValues registro= new ContentValues();
@@ -81,6 +87,10 @@ public class ModificarPartidos extends AppCompatActivity {
 
     }
 
+    /**
+     * Comprueba que el idPartido esta dentro de la base de datos para poder modificarlo
+     * @return true si se encuenta el valor en la base de datos y false si no esta
+     */
     private boolean comprobarIdPartido() {
         boolean comprobar=false;
         bd = bdHelp.getReadableDatabase();
@@ -101,6 +111,10 @@ public class ModificarPartidos extends AppCompatActivity {
         return comprobar;
     }
 
+    /**
+     * Comprueba que todos los datos esten llenos o que no se salga ningun valor
+     * @return true si todo esta correcto y false si algun campo falla
+     */
     private boolean comprobarCampos() {
         if (etIdPartido.getText().toString().equals("")||Integer.parseInt(etIdPartido.getText().toString())<0){
             Toast.makeText(getApplicationContext(), R.string.noIdPartido,

@@ -3,17 +3,24 @@ package com.diurnohlc.apuestas;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TabHost;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by cloud on 13/12/2017.
@@ -24,46 +31,49 @@ public class Ajustes extends AppCompatActivity {
     private TabHost tab;
     final Integer[] cantidad = {1, 2, 5, 10};
     private ArrayAdapter<Integer> adaptador;
-    private Spinner spinner;
+    private ArrayAdapter<String> adaptador2;
+    private Spinner spinner,partidos;
     String deporte;
     int numero1, numero2;
     TextView num1, num2;
-    String spinnervalor;
-    String numerofinal1 ;
+    String spinnervalor,numerofinal1 ;
     String numerofinal2 ;
     public Intent intent = new Intent();
+    MiBaseDedatosHelper bdHelp;
+    SQLiteDatabase bd;
+    Cursor cur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ajustes);
         TextView tipodedeporte = (TextView) findViewById(R.id.tipodedeporte);
-        TextView partidos = (TextView) findViewById(R.id.partidos);
+        partidos = (Spinner) findViewById(R.id.partidos);
+        spinner = (Spinner) findViewById(R.id.spinnerapuesta);
         num1 = (TextView) findViewById(R.id.textnumero1);
         num2 = (TextView) findViewById(R.id.textnumero2);
         deporte = getIntent().getExtras().getString("ENVIARDEPORTE");
 
-
-        Log.i("ASD",deporte);
-        switch (deporte) {
-            case "futbol":
-                tipodedeporte.setText("Futbol");
-                partidos.setText("Almería - Ciudad Real");
-                break;
-            case "tenis":
-                tipodedeporte.setText("Tenis");
-                partidos.setText("Nadal - Ferrer");
-                break;
-            case "balonmano":
-                tipodedeporte.setText("balonmano");
-                partidos.setText(" Granoller - Barcelona");
-                break;
-            case "baloncesto":
-                tipodedeporte.setText("baloncesto");
-                partidos.setText("Estudiantes - Barcelona");
-                break;
-
-        }
+        //Esta parte ya no haria falta ya que escogemos el partido segun el spinner
+//        switch (deporte) {
+//            case "futbol":
+//                tipodedeporte.setText("Futbol");
+//                partidos.setText("Almería - Ciudad Real");
+//                break;
+//            case "tenis":
+//                tipodedeporte.setText("Tenis");
+//                partidos.setText("Nadal - Ferrer");
+//                break;
+//            case "balonmano":
+//                tipodedeporte.setText("balonmano");
+//                partidos.setText(" Granoller - Barcelona");
+//                break;
+//            case "baloncesto":
+//                tipodedeporte.setText("baloncesto");
+//                partidos.setText("Estudiantes - Barcelona");
+//                break;
+//
+//        }
         Button btguardar = (Button) findViewById(R.id.botonguardar);
         btguardar.setOnClickListener(new View.OnClickListener() {
 
@@ -118,11 +128,24 @@ public class Ajustes extends AppCompatActivity {
         adaptador.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);
 
-        spinner = (Spinner) findViewById(R.id.spinnerapuesta);
+
         spinner.setAdapter(adaptador);
+
+        //
+
+        //Aqui iniciamos el nuevo spinner con el array que le pasamos por parametro con los partidos en la bd
+        adaptador2 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, conseguirPartidos());
+
+        adaptador2.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
+        partidos.setAdapter(adaptador2);
+
+
+
         PreferenceManager.setDefaultValues(this,R.xml.settings,true);
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String preferenciaDeporte = sharedPref.getString("deporte","tenis" );
+        String preferenciaDeporte = sharedPref.getString("apuesta","2" );
         preferencias(preferenciaDeporte);
 
 
@@ -130,6 +153,34 @@ public class Ajustes extends AppCompatActivity {
 
     }
 
+    /**
+     * Este metodo recorre la base de datos buscando todos los partidos posibles para añadirlos a un ArrayList
+     * @return Un array list con todos los partidos posibles
+     */
+    private ArrayList<String> conseguirPartidos() {
+
+        bdHelp = new MiBaseDedatosHelper(this, "partidos", null, 1);
+        bd = bdHelp.getReadableDatabase();
+        cur = bd.rawQuery("SELECT equipo1, equipo2 FROM partidos", null);
+        final ArrayList<String> partidos= new ArrayList<>();
+        if (bd.isOpen()) {
+
+            if (cur.moveToFirst()) {
+                do {
+                    String equipo1 = cur.getString(0);
+                    String equipo2 = cur.getString(1);
+                    partidos.add(equipo1+" - "+equipo2);
+
+                } while (cur.moveToNext());
+
+            }
+            bd.close();
+            return partidos;
+        }
+        return null;
+    }
+
+    //Preferencias
     private void preferencias(String preferenciaDeporte) {
         if(preferenciaDeporte.equals("1")){
             spinner.setSelection(0);
@@ -145,6 +196,9 @@ public class Ajustes extends AppCompatActivity {
         }
     }
 
+    /**
+     * Metodo para comprobar que todos los datos estan correctos y devuelven a la actividad principal los datos rellenados
+     */
     public void guardar() {
         boolean comprobar = true;
         if (num1.getText().toString().equals("")||num2.getText().toString().equals("")) {
@@ -183,6 +237,10 @@ public class Ajustes extends AppCompatActivity {
         }
     }
 
+    /**
+     * Si se destruye la actividad guarda los datos
+     * @param estado
+     */
     protected void onSaveInstanceState(Bundle estado) {
         super.onSaveInstanceState(estado);
         estado.putString ("SPINNERAPUESTA", spinnervalor);
@@ -191,6 +249,10 @@ public class Ajustes extends AppCompatActivity {
         estado.putInt("ESTADOTAB",tab.getCurrentTab());
     }
 
+    /**
+     * En el caso de recuperar la actividad vielve a poner los valores que habia en lso edittext
+     * @param estado
+     */
     @Override
     protected void onRestoreInstanceState(Bundle estado) {
         super.onRestoreInstanceState (estado);

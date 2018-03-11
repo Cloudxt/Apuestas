@@ -20,7 +20,6 @@ public class AnadirPartidos extends AppCompatActivity {
     SQLiteDatabase bd;
     Cursor cur;
     Button add;
-    String idpartido,tipoDeporte, equipo1 ,equipo2 ,resultado1 ,resultado2;
     EditText etIdPartido,ettipoDeporte,etEquipo1,etEquipo2,etResultado1,etResultado2;
 
 
@@ -47,6 +46,9 @@ public class AnadirPartidos extends AppCompatActivity {
 
     }
 
+    /**
+     * Metodo que introduce los valores en la base de datos
+     */
     private void introducirPartido() {
         if(comprobarCampos()){
             if(comprobarIdPartido()){
@@ -63,6 +65,9 @@ public class AnadirPartidos extends AppCompatActivity {
 
     }
 
+    /**
+     * Si todo esta correcto realiza la inserccion en la base de datos
+     */
     private void insertarPartidoEnLaBD() {
         bd=bdHelp.getWritableDatabase();
         if (bd.isOpen()) {
@@ -83,6 +88,10 @@ public class AnadirPartidos extends AppCompatActivity {
 
     }
 
+    /**
+     * Comprueba en la base de datos si el iddepartido esta ya registrado
+     * @return true si el partido esta ya registrado y false si no lo esta
+     */
     private boolean comprobarIdPartido() {
         boolean comprobar=false;
         bd = bdHelp.getReadableDatabase();
@@ -103,6 +112,10 @@ public class AnadirPartidos extends AppCompatActivity {
         return comprobar;
     }
 
+    /**
+     * Comprueba si los valores introducidos son correctos
+     * @return devuelve true si esta todo bien y false si algo falla
+     */
     private boolean comprobarCampos() {
         if (etIdPartido.getText().toString().equals("")||Integer.parseInt(etIdPartido.getText().toString())<0){
             Toast.makeText(getApplicationContext(), R.string.noIdPartido,

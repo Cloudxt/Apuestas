@@ -61,9 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Metodo para abrir Resultado
+     */
     private void abrirResultado() {
         Intent intent = new Intent(this, resultados.class);
-      //  intent.putExtra("ENVIARDEPORTE", deporte);
         startActivity(intent);
     }
 
