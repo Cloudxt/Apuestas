@@ -19,7 +19,7 @@ public class ModificarPartidos extends AppCompatActivity {
     MiBaseDedatosHelper bdHelp;
     SQLiteDatabase bd;
     Cursor cur;
-    Button add;
+    Button modificar;
     String idpartido,tipoDeporte, equipo1 ,equipo2 ,resultado1 ,resultado2;
     EditText etIdPartido,ettipoDeporte,etEquipo1,etEquipo2,etResultado1,etResultado2;
 
@@ -28,7 +28,8 @@ public class ModificarPartidos extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.anadirdeporte);
-        add=(Button)findViewById(R.id.anadirpartido);
+        modificar=(Button)findViewById(R.id.anadirpartido);
+        modificar.setText(R.string.modificarpartido);
         etIdPartido=findViewById(R.id.etIdMatch);
         ettipoDeporte=findViewById(R.id.etDeporte);
         etEquipo1=findViewById(R.id.etEquipo1);
@@ -36,7 +37,7 @@ public class ModificarPartidos extends AppCompatActivity {
         etResultado1=findViewById(R.id.etResult1);
         etResultado2=findViewById(R.id.etResult2);
 
-        add.setOnClickListener(new View.OnClickListener() {
+        modificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 modificarPartido();
